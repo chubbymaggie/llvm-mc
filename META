@@ -1,0 +1,11 @@
+# OASIS_START
+# DO NOT EDIT (digest: 9f0e60bf6470eb6141d2c39544440b89)
+version = "0.1"
+description = "Export LLVM Disassembler Facilities"
+archive(byte) = "llvm-mc.cma"
+archive(byte, plugin) = "llvm-mc.cma"
+archive(native) = "llvm-mc.cmxa"
+archive(native, plugin) = "llvm-mc.cmxs"
+exists_if = "llvm-mc.cma"
+# OASIS_STOP
+

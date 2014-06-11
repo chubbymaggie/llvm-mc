@@ -1,0 +1,33 @@
+"ARM": include
+<factory.cmx> or <ARM.cmx>: for-pack(Mc)
+# OASIS_START
+# DO NOT EDIT (digest: b0382ca05c8c842586e1e4e0bbff27e5)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library llvm-mc
+"llvm-mc.cmxs": use_llvm-mc
+<*.ml{,i}>: oasis_library_llvm_mc_ccopt
+"Disassembler.c": oasis_library_llvm_mc_ccopt
+<llvm-mc.{cma,cmxa}>: oasis_library_llvm_mc_cclib
+"libllvm-mc_stubs.lib": oasis_library_llvm_mc_cclib
+"dllllvm-mc_stubs.dll": oasis_library_llvm_mc_cclib
+"libllvm-mc_stubs.a": oasis_library_llvm_mc_cclib
+"dllllvm-mc_stubs.so": oasis_library_llvm_mc_cclib
+<llvm-mc.{cma,cmxa}>: use_libllvm-mc_stubs
+# Executable test_mc
+"test_mc.byte": pkg_str
+"test_mc.byte": use_llvm-mc
+<*.ml{,i}>: pkg_str
+<*.ml{,i}>: use_llvm-mc
+# OASIS_STOP

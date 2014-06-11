@@ -1,0 +1,24 @@
+OASISFormat: 0.4
+Name:        llvm-mc
+Version:     0.1
+Synopsis:    Export LLVM Disassembler Facilities
+Authors:     Matthew Maurer
+License:     BSD-3-clause
+Plugins:     META (0.4), DevFiles (0.4)
+
+Library "llvm-mc"
+  Path:       .
+  BuildTools: ocamlbuild
+  Modules:    Mc
+  CSources:   Disassembler.c
+  CCOpt:      -std=c11 -g -O2 -fPIC -DPIC ${llvm_cflags}
+  CCLib:      ${llvm_ldflags} ${llvm_libs} ${sys_libs} -lm
+
+Executable test_mc
+  Path:         .
+  BuildTools:   ocamlbuild
+  MainIs:       test_mc.ml
+  BuildDepends: llvm-mc, str
+
+Test test_mc
+  Command: $test_mc
