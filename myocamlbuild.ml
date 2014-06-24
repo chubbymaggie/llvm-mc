@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 8104745000993c55361a9679c18860b9) *)
+(* DO NOT EDIT (digest: 17677d9bc1f6f2ff62a14a5663b21185) *)
 module OASISGettext = struct
 # 22 "/home/maurer/Sources/live/oasis/src/oasis/OASISGettext.ml"
 
@@ -642,7 +642,9 @@ let package_default =
                 A "-cclib";
                 A "${sys_libs}";
                 A "-cclib";
-                A "-lm"
+                A "-lm";
+                A "-cclib";
+                A "-lpthread"
               ])
          ]);
         (["oasis_library_llvm_mc_cclib"; "ocamlmklib"; "c"],
@@ -653,7 +655,8 @@ let package_default =
                 A "${llvm_ldflags}";
                 A "${llvm_libs}";
                 A "${sys_libs}";
-                A "-lm"
+                A "-lm";
+                A "-lpthread"
               ])
          ])
       ];
@@ -665,6 +668,6 @@ let conf = {MyOCamlbuildFindlib.no_automatic_syntax = false}
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default conf package_default;;
 
-# 669 "myocamlbuild.ml"
+# 672 "myocamlbuild.ml"
 (* OASIS_STOP *)
 Ocamlbuild_plugin.dispatch dispatch_default;;

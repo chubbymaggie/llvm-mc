@@ -12,13 +12,14 @@ Library "llvm-mc"
   Modules:    Mc
   CSources:   Disassembler.c
   CCOpt:      -std=c11 -g -O2 -fPIC -DPIC ${llvm_cflags}
-  CCLib:      ${llvm_ldflags} ${llvm_libs} ${sys_libs} -lm
+  CCLib:      ${llvm_ldflags} ${llvm_libs} ${sys_libs} -lm -lpthread
 
 Executable test_mc
-  Path:         .
-  BuildTools:   ocamlbuild
-  MainIs:       test_mc.ml
-  BuildDepends: llvm-mc, str
+  Path:           .
+  BuildTools:     ocamlbuild
+  Install:        false
+  MainIs:         test_mc.ml
+  BuildDepends:   llvm-mc, str
 
 Test test_mc
   Command: $test_mc
