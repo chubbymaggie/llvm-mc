@@ -1,0 +1,5 @@
+LLVM-MC provides bindings to acquire MCInst data from LLVM for bitstrings.
+This functionality is normally only available in C++, but OCaml does not bind well against C++, so we have a slightly modified version of LLVM which re-exports this functionality in C. To get this, run
+git clone https://github.com/maurer/llvm.git
+git checkout c-disasm-mcinst
+If you like the features provided by LLVM-MC, please be sure to make your feelings clear to the LLVM maintainers - they are primarily not including the interface because they are worried about the effort in maintaining a stable MCInst C interface, and currently believe all their C API functions must be stable.
