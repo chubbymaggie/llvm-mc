@@ -6883,7 +6883,8 @@ let setup_t =
         install_custom =
           {
             pre_command = [(OASISExpr.EBool true, None)];
-            post_command = [(OASISExpr.EBool true, None)]
+            post_command =
+              [(OASISExpr.EBool true, Some (("bash", ["winstubs.sh"])))]
           };
         uninstall_custom =
           {

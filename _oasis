@@ -6,6 +6,8 @@ Authors:     Matthew Maurer
 License:     BSD-3-clause
 Plugins:     META (0.4), DevFiles (0.4)
 
+PostInstallCommand: bash winstubs.sh
+
 Library "llvm-mc"
   Path:       .
   BuildTools: ocamlbuild
