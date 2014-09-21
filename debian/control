@@ -1,0 +1,41 @@
+Source: llvm-mc
+Priority: optional
+Maintainer: Matthew Maurer <maurer@matthewmaurer.org>
+Build-Depends:
+  debhelper (>= 9),
+  pkg-config,
+  ocaml-nox (>= 4.01),
+  camlp4,
+  ocaml-findlib (>= 1.4),
+  dh-ocaml (>= 0.9),
+  zlib1g-dev,
+  llvm-3.5-dev (= 1:3.5-1+mcdisasminst1)
+Standards-Version: 3.9.5
+Section: ocaml
+Homepage: https://github.com/BinaryAnalysisPlatform/llvm-mc
+
+Package: libllvm-mc-ocaml
+Architecture: any
+Depends:
+  ${ocaml:Depends},
+  llvm-3.6 (= 1:3.6~svn215195-1ubuntu1+cdisasmmcinst),
+  ${shlibs:Depends},
+  ${misc:Depends}
+Provides: ${ocaml:Provides}
+Description: OCaml Bindings to LLVM MCInst Disassembly
+ This package provides files needed to run ocaml programs using MCInst
+ disassembly
+
+Package: libllvm-mc-ocaml-dev
+Architecture: any
+Depends:
+  ${ocaml:Depends},
+  ${shlibs:Depends},
+  ${misc:Depends},
+  llvm-3.6-dev (= 1:3.6~svn215195-1ubuntu1+cdisasmmcinst),
+  libllvm-mc-ocaml (= ${binary:Version})
+Provides: ${ocaml:Provides}
+Recommends: ocaml-findlib
+Description: OCaml Bindings to LLVM MCInst Disassembly
+ This package provides files needed to build ocaml programs using MCInst
+ disassembly

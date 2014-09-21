@@ -1,0 +1,17 @@
+Description: Enable detection of llvm-config-3.5
+ Allow setup.ml to find llvm-config-3.5 as its representative of llvm-config 
+ Author: Matthew Maurer <maurer@matthewmaurer.org>
+ Origin: vendor
+ Forwarded: not-needed
+
+--- llvm-mc-0.1~rc0.orig/setup.ml
++++ llvm-mc-0.1~rc0/setup.ml
+@@ -7039,7 +7039,7 @@ let exec bin args =
+   OASISExec.run_read_one_line ~ctxt:!BaseContext.default bin args
+ 
+ let def_llvm_flags () =
+-  let llvm_config = BaseCheck.prog_best "llvm_config" ["llvm-config"] () in
++  let llvm_config = BaseCheck.prog_best "llvm_config" ["llvm-config"; "llvm-config-3.5"] () in
+   ["cflags"; "ldflags"; "libs"]
+   |> List.map begin
+     fun opt ->

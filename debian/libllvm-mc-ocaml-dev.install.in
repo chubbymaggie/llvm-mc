@@ -1,0 +1,4 @@
+@OCamlStdlibDir@/llvm-mc/*.cmi
+@OCamlStdlibDir@/llvm-mc/*.a
+OPT: @OCamlStdlibDir@/llvm-mc/*.cmx
+OPT: @OCamlStdlibDir@/llvm-mc/*.cmxa
