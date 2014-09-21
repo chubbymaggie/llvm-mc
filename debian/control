@@ -18,7 +18,7 @@ Package: libllvm-mc-ocaml
 Architecture: any
 Depends:
   ${ocaml:Depends},
-  llvm-3.6 (= 1:3.6~svn215195-1ubuntu1+cdisasmmcinst),
+  llvm-3.5 (= 1:3.5-1+mcdisasminst1),
   ${shlibs:Depends},
   ${misc:Depends}
 Provides: ${ocaml:Provides}
@@ -32,7 +32,7 @@ Depends:
   ${ocaml:Depends},
   ${shlibs:Depends},
   ${misc:Depends},
-  llvm-3.6-dev (= 1:3.6~svn215195-1ubuntu1+cdisasmmcinst),
+  llvm-3.5-dev (= 1:3.5-1+mcdisasminst1),
   libllvm-mc-ocaml (= ${binary:Version})
 Provides: ${ocaml:Provides}
 Recommends: ocaml-findlib
