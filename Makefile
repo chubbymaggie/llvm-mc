@@ -3,7 +3,7 @@ OCBF=
 OCF=ocamlfind
 OCI=ocp-indent
 LLVM_TREE=
-LLVM_MODE=Debug+Asserts
+LLVM_TBLGEN=
 
 # OASIS_START
 # DO NOT EDIT (digest: a3c674b4239234cbbe53afe090018954)
@@ -48,20 +48,20 @@ configure:
 # OASIS_STOP
 
 # Architecture generation rules
-mc/%/reg.ml:
-	$(LLVM_TREE)/$(LLVM_MODE)/bin/llvm-tblgen -I $(LLVM_TREE)/include -I $(LLVM_TREE)/lib/Target/$* $(LLVM_TREE)/lib/Target/$*/$*.td -gen-register-info | perl parse-tblgen/gen-register-info.pl > $@ 2>/dev/null
+%/reg.ml:
+	$(LLVM_TBLGEN) -I $(LLVM_TREE)/include -I $(LLVM_TREE)/lib/Target/$* $(LLVM_TREE)/lib/Target/$*/$*.td -gen-register-info | perl parse-tblgen/gen-register-info.pl > $@ 2>/dev/null
 
-mc/%/opcode.ml:
-	$(LLVM_TREE)/$(LLVM_MODE)/bin/llvm-tblgen -I $(LLVM_TREE)/include -I $(LLVM_TREE)/lib/Target/$* $(LLVM_TREE)/lib/Target/$*/$*.td -gen-instr-info | perl parse-tblgen/gen-instr-info.pl > $@ 2>/dev/null
+%/opcode.ml:
+	$(LLVM_TBLGEN) -I $(LLVM_TREE)/include -I $(LLVM_TREE)/lib/Target/$* $(LLVM_TREE)/lib/Target/$*/$*.td -gen-instr-info | perl parse-tblgen/gen-instr-info.pl > $@ 2>/dev/null
 
-mc/%/_tags:
+%/_tags:
 	echo 'not <$*.cmx> : for-pack(Mc.$*)' > $@
 	echo '<$.cmx> : for-pack(Mc)
 
-mc/%/%.mlpack:
+%/%.mlpack:
 	echo -e 'Cond\nEnum\nOpcode\nReg' > $@
 
-LLVM_GENERATED=mc/ARM/reg.ml mc/ARM/opcode.ml
+LLVM_GENERATED=ARM/reg.ml ARM/opcode.ml
 
 .PHONY: llvm-gen
 llvm-gen: $(LLVM_GENERATED)
