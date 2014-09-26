@@ -56,7 +56,7 @@ configure:
 
 %/_tags:
 	echo 'not <$*.cmx> : for-pack(Mc.$*)' > $@
-	echo '<$.cmx> : for-pack(Mc)
+	echo '<$.cmx> : for-pack(Mc)' >> $@
 
 %/%.mlpack:
 	echo -e 'Cond\nEnum\nOpcode\nReg' > $@
