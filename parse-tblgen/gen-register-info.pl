@@ -1,5 +1,6 @@
 #!/usr/bin/env perl
-use Modern::Perl 2011;
+use 5.012;
+use warnings;
 use autodie;
 
 # Example input:
