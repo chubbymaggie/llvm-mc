@@ -1,0 +1,12 @@
+B ./_build
+B ./_build/ARM
+B ./_build/X86
+FLG -strict-sequence
+PKG llvm-mc
+REC
+S .
+S ./ARM
+S ./X86
+S ./_build
+S ./_build/ARM
+S ./_build/X86
