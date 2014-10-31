@@ -1,5 +1,8 @@
 "ARM": include
-<factory.cmx> or <ARM.cmx>: for-pack(Mc)
+"ARM.cmx": for-pack(Mc)
+"X86": include
+"X86.cmx": for-pack(Mc)
+"factory.cmx": for-pack(Mc)
 # OASIS_START
 # DO NOT EDIT (digest: b0382ca05c8c842586e1e4e0bbff27e5)
 # Ignore VCS directories, you can use the same kind of rule outside

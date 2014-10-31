@@ -56,18 +56,18 @@ configure:
 
 %/_tags:
 	echo 'not <$*.cmx> : for-pack(Mc.$*)' > $@
-	echo '<$.cmx> : for-pack(Mc)' >> $@
+	echo '<$*.cmx> : for-pack(Mc)' >> $@
 
 %/%.mlpack:
 	echo -e 'Cond\nEnum\nOpcode\nReg' > $@
 
-LLVM_GENERATED=ARM/reg.ml ARM/opcode.ml
+LLVM_GENERATED=ARM/reg.ml ARM/opcode.ml X86/reg.ml X86/opcode.ml
 
 .PHONY: llvm-gen
 llvm-gen: $(LLVM_GENERATED)
 .PHONY: llvm-clean
 llvm-clean:
-	rm $(LLVM_GENERATED)
+	rm -f $(LLVM_GENERATED)
 
 .PHONY: check
 check: ocp-indent-check
